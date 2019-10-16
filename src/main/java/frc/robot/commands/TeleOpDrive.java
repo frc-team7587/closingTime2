@@ -26,7 +26,7 @@ public class TeleOpDrive extends Command {
   @Override
   protected void execute() {
     Robot.m_train.drive(Robot.joy.getY() * Robot.joy.getThrottle(),
-        Robot.joy.getTwist() * Math.abs(Robot.joy.getThrottle() * -1));
+        Robot.joy.getTwist() * 0.65 * Math.abs(Robot.joy.getThrottle() * -1));
   }
 
   // Make this return true when this Command no longer needs to run execute()

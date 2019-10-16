@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystem.DriveTrain;
 
@@ -60,13 +61,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-    double speed = joy.getRawAxis(1) * -1;
-    // drive.arcadeDrive(joy.getThrottle() * joy.getY(), Math.abs(joy.getThrottle()) * joy.getTwist());
-      talon.set(ControlMode.PercentOutput, speed);
-      // cargoTalon.stopMotor();
-    // log();
-    SmartDashboard.putNumber("Speed", speed);
-    SmartDashboard.putNumber("wut", talon.getMotorOutputPercent());
+    Scheduler.getInstance().run();
   }
 //cargoTalon.set(ControlMode.PercentOutput, -0.1);
   @Override
