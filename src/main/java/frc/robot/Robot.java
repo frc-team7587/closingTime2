@@ -8,17 +8,14 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystem.DriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,7 +25,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
-  Joystick joy = new Joystick(0);
+  public static DriveTrain m_train = new DriveTrain();
+  public static Joystick joy = new Joystick(0);
   Button button = new JoystickButton(joy, 1);
   WPI_TalonSRX talon = new WPI_TalonSRX(1); //0 bad, 1 good
   // WPI_TalonSRX talon2 = new WPI_TalonSRX(2);
