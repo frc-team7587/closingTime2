@@ -19,8 +19,8 @@ import frc.robot.commands.TeleOpDrive;
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  WPI_TalonSRX talon = new WPI_TalonSRX(1);
-  WPI_TalonSRX talon2 = new WPI_TalonSRX(2);
+  WPI_TalonSRX talon = new WPI_TalonSRX(0);
+  WPI_TalonSRX talon2 = new WPI_TalonSRX(1);
   DifferentialDrive drive = new DifferentialDrive(talon, talon2);
 
   @Override
