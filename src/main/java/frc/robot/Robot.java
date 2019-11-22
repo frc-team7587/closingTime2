@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.subsystem.DriveTrain;
+import frc.robot.subsystem.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +27,7 @@ import frc.robot.subsystem.DriveTrain;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain m_train = new DriveTrain();
+  public static Elevator m_elevator = new Elevator();
   public static Joystick joy = new Joystick(0);
   Button button = new JoystickButton(joy, 1);
   WPI_TalonSRX talon = new WPI_TalonSRX(1); //0 bad, 1 good
