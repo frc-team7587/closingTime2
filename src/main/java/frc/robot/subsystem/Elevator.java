@@ -1,28 +1,39 @@
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+
 package frc.robot.subsystem;
 
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.MoveElevator;
 
-public class Elevator extends Subsystem{
+/**
+ * Add your docs here.
+ */
+public class Elevator extends Subsystem {
+  // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  private final SpeedController eleMotor = new PWMVictorSPX(1);
 
-    public final SpeedController m_eleMotor = new PWMVictorSPX(2);
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
 
-    @Override
-    protected void initDefaultCommand() {
-        //setDefaultCommand(new MoveElevator());
-    }
+  public void raise() {
+    eleMotor.set(0.4);
+  }
 
-    public void raise(){
-        m_eleMotor.set(0.25);
-    }
-
-    public void rest(){
-        m_eleMotor.stopMotor();
-    }
-    
-    public void lower(){
-        m_eleMotor.set(-0.25);
-    }
+  public void lower() {
+    eleMotor.set(-0.4);
+  }
+  
+  public void stop(){
+    eleMotor.set(0);
+  }
 }
